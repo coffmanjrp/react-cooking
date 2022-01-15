@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Create, Home, Recipe, Search } from 'pages';
+import { Navbar } from 'components';
 import 'App.css';
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<Create />} />
