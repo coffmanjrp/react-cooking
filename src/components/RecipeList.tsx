@@ -1,15 +1,10 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { Data } from 'utils/types';
 import './RecipeList.css';
 
 type Props = {
-  recipes: {
-    id: string;
-    title: string;
-    ingredients: string[];
-    method: string;
-    cookingTime: string;
-  }[];
+  recipes: Data[];
 };
 
 const RecipeList: FC<Props> = ({ recipes }) => {

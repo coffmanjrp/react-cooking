@@ -1,17 +1,8 @@
 import { useEffect, useState } from 'react';
-
-type Data =
-  | {
-      id: string;
-      title: string;
-      ingredients: string[];
-      method: string;
-      cookingTime: string;
-    }[]
-  | null;
+import { Data } from 'utils/types';
 
 const useFetch = (url: string) => {
-  const [data, setData] = useState<Data>(null);
+  const [data, setData] = useState<(Data[] & Data) | null>(null);
   const [isPending, setIsPending] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
