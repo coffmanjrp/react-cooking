@@ -1,4 +1,6 @@
-import { FC, FormEvent, MouseEvent, useRef, useState } from 'react';
+import { FC, FormEvent, MouseEvent, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import useFetch from 'hooks/useFetch';
 import './Create.css';
 
 const Create: FC = () => {
@@ -8,11 +10,26 @@ const Create: FC = () => {
   const [newIngredient, setNewIngredient] = useState<string>('');
   const [ingredients, setIngredients] = useState<string[]>([]);
   const ingredientInput = useRef<HTMLInputElement | null>(null);
+  const navigate = useNavigate();
+  const { data, postData } = useFetch('/recipes', 'POST');
+
+  useEffect(() => {
+    if (data) {
+      navigate('/');
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    console.log(title, method, cookingTime, ingredients);
+    postData({
+      title,
+      method,
+      cookingTime: `${cookingTime} minutes`,
+      ingredients,
+    });
   };
 
   const handleAdd = (e: MouseEvent) => {
