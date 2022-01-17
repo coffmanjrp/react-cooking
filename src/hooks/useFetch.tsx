@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Data, FetchOptions } from 'utils/types';
 
-const useFetch = (url: string, method: string = 'GET') => {
+const useFetch = (
+  url: string,
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE' = 'GET'
+) => {
   const [data, setData] = useState<(Data[] & Data) | null>(null);
   const [isPending, setIsPending] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -13,6 +16,10 @@ const useFetch = (url: string, method: string = 'GET') => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
+  };
+
+  const deleteData = () => {
+    setOptions({ method: 'DELETE' });
   };
 
   useEffect(() => {
@@ -48,7 +55,7 @@ const useFetch = (url: string, method: string = 'GET') => {
       fetchData();
     }
 
-    if (method === 'POST' && options) {
+    if (options) {
       fetchData(options);
     }
 
@@ -57,7 +64,7 @@ const useFetch = (url: string, method: string = 'GET') => {
     };
   }, [url, options, method]);
 
-  return { data, isPending, error, postData };
+  return { data, isPending, error, postData, deleteData };
 };
 
 export default useFetch;

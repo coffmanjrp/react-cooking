@@ -8,6 +8,6 @@ export type Data = {
 
 export type FetchOptions = {
   method: 'GET' | 'POST' | 'PUT' | 'DELETE';
-  headers: { 'Content-Type': 'application/json' };
-  body: string;
+  headers?: { 'Content-Type': 'application/json' };
+  body?: string;
 };
