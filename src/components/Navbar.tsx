@@ -5,11 +5,11 @@ import { useTheme } from 'hooks';
 import './Navbar.css';
 
 const Navbar: FC = () => {
-  const { color } = useTheme();
+  const { color, changeColor } = useTheme();
 
   return (
     <div className="navbar" style={{ background: color }}>
-      <nav>
+      <nav onClick={() => changeColor('pink')}>
         <Link to="/" className="brand">
           <h1>React Cooking</h1>
         </Link>
