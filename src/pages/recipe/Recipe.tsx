@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useNavigate, useParams, Navigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useFetch from 'hooks/useFetch';
 import './Recipe.css';
 
