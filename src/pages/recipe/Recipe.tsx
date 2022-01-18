@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import useFetch from 'hooks/useFetch';
+import { useFetch } from 'hooks';
 import './Recipe.css';
 
 const Recipe: FC = () => {

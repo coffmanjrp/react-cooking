@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useLocation } from 'react-router-dom';
 import { RecipeList } from 'components';
-import useFetch from 'hooks/useFetch';
+import { useFetch } from 'hooks';
 import './Search.css';
 
 const Search: FC = () => {

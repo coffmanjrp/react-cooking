@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { RecipeList } from 'components';
-import useFetch from 'hooks/useFetch';
+import { useFetch } from 'hooks';
 import './Home.css';
 
 const Home: FC = () => {

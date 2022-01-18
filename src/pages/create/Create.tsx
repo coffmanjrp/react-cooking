@@ -1,6 +1,6 @@
 import { FC, FormEvent, MouseEvent, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useFetch from 'hooks/useFetch';
+import { useFetch } from 'hooks';
 import './Create.css';
 
 const Create: FC = () => {
