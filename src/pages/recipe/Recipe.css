@@ -26,7 +26,8 @@
 .recipe li:last-child:after {
   content: '.';
 }
-.recipe button {
+
+.recipe .btn {
   display: block;
   margin: 20px auto;
   font-size: 1em;
@@ -37,6 +38,21 @@
   background-color: #58249c;
   text-decoration: none;
   cursor: pointer;
+}
+
+.recipe .btn img {
+  filter: invert(90%);
+}
+
+.recipe.dark {
+  background: #555;
+  color: #e4e4e4;
+}
+
+.recipe.dark p,
+.recipe.dark h2,
+.recipe.dark li {
+  color: #e4e4e4;
 }
 
 .method {

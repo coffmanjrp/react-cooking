@@ -12,15 +12,13 @@ const ThemeSelector: FC = () => {
     changeMode(mode === 'dark' ? 'light' : 'dark');
   };
 
-  console.log(mode);
-
   return (
     <div className="theme-selector">
       <div className="mode-toggle">
         <img
           src={modeIcon}
           alt="Toggle Mode"
-          style={{ filter: mode === 'dark' ? 'invert(100%)' : 'invert(20%)' }}
+          style={{ filter: mode === 'dark' ? 'invert(90%)' : 'invert(20%)' }}
           onClick={toggleMode}
         />
       </div>

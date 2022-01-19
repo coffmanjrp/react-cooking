@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useFetch } from 'hooks';
+import { useFetch, useTheme } from 'hooks';
 import './Recipe.css';
+import deleteIcon from 'assets/delete-icon.svg';
 
 const Recipe: FC = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const Recipe: FC = () => {
     error,
     deleteData,
   } = useFetch(`/recipes/${id}`);
+  const { mode } = useTheme();
 
   const handleDelete = () => {
     const deleteConfirm = window.confirm(
@@ -28,7 +30,7 @@ const Recipe: FC = () => {
   };
 
   return (
-    <div className="recipe">
+    <div className={`recipe ${mode}`}>
       {error && <p className="error">{error}</p>}
       {isPending && <p className="loading">Loading...</p>}
       {recipe && (
@@ -42,7 +44,7 @@ const Recipe: FC = () => {
           </ul>
           <p className="method">{recipe.method}</p>
           <button type="button" className="btn" onClick={handleDelete}>
-            Delete Recipe
+            <img src={deleteIcon} alt="Delete Recipe" />
           </button>
         </>
       )}

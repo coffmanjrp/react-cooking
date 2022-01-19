@@ -51,6 +51,16 @@
   margin: 20px auto 0;
 }
 
+.recipe-list .card.dark {
+  background: #555;
+}
+
+.recipe-list .card.dark p,
+.recipe-list .card.dark h3,
+.recipe-list .card.dark div {
+  color: #e4e4e4;
+}
+
 @media (max-width: 768px) {
   .recipe-list {
     grid-template-columns: repeat(2, 1fr);
