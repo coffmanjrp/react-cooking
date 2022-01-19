@@ -12,7 +12,7 @@ const Recipe: FC = () => {
     error,
     deleteData,
   } = useFetch(`/recipes/${id}`);
-  const { mode } = useTheme();
+  const { color, mode } = useTheme();
 
   const handleDelete = () => {
     const deleteConfirm = window.confirm(
@@ -46,11 +46,17 @@ const Recipe: FC = () => {
             <button
               type="button"
               className="btn"
+              style={{ background: color }}
               onClick={() => navigate(`/update/${id}`)}
             >
               Update
             </button>
-            <button type="button" className="btn" onClick={handleDelete}>
+            <button
+              type="button"
+              className="btn"
+              style={{ background: color }}
+              onClick={handleDelete}
+            >
               Delete
             </button>
           </div>
