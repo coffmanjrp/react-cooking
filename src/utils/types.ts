@@ -12,13 +12,15 @@ export type FetchOptions = {
   body?: string;
 };
 
+export type Mode = 'light' | 'dark';
+
 export type ThemeAction =
   | { type: 'CHANGE_COLOR'; payload: string }
   | { type: 'CHANGE_MODE'; payload: 'light' | 'dark' };
 
 export type ThemeState = {
   color: string;
-  mode: 'light' | 'dark';
+  mode: Mode;
 };
 
 export type ThemeValue = ThemeState & {

@@ -1,5 +1,6 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useTheme } from 'hooks';
+import { Mode } from 'utils/types';
 import './ThemeSelector.css';
 import modeIcon from 'assets/mode-icon.svg';
 
@@ -8,8 +9,30 @@ const themeColors = ['#58249c', '#249c6b', '#b70233'];
 const ThemeSelector: FC = () => {
   const { mode, changeColor, changeMode } = useTheme();
 
+  useEffect(() => {
+    const initialMode = localStorage.getItem('mode') as Mode;
+    const initialTheme = localStorage.getItem('theme');
+
+    if (initialMode) {
+      changeMode(initialMode);
+    }
+
+    if (initialTheme) {
+      changeColor(initialTheme);
+    }
+    // eslint-disable-next-line
+  }, [mode]);
+
   const toggleMode = () => {
-    changeMode(mode === 'dark' ? 'light' : 'dark');
+    const modeCondition = mode === 'light' ? 'dark' : 'light';
+
+    localStorage.setItem('mode', modeCondition);
+    changeMode(modeCondition);
+  };
+
+  const toggleTheme = (color: string) => {
+    localStorage.setItem('theme', color);
+    changeColor(color);
   };
 
   return (
@@ -27,7 +50,7 @@ const ThemeSelector: FC = () => {
           <div
             key={color}
             style={{ background: color }}
-            onClick={() => changeColor(color)}
+            onClick={() => toggleTheme(color)}
           />
         ))}
       </div>
