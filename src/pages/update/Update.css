@@ -39,3 +39,21 @@
 .update.dark label {
   color: #e4e4e4;
 }
+
+@media (max-width: 1024px) {
+  .update {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .update {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 425px) {
+  .update {
+    max-width: 400px;
+  }
+}

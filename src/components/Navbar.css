@@ -30,3 +30,30 @@
   background: #fff;
   color: #333;
 }
+
+@media (max-width: 1024px) {
+  .navbar nav {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar nav {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 425px) {
+  .navbar nav {
+    max-width: 400px;
+  }
+
+  .navbar a.brand {
+    display: none;
+  }
+
+  .navbar a:last-child {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
