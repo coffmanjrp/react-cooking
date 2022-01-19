@@ -18,6 +18,14 @@ const useFetch = (
     });
   };
 
+  const updateData = (data: Data) => {
+    setOptions({
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+  };
+
   const deleteData = () => {
     setOptions({ method: 'DELETE' });
   };
@@ -64,7 +72,7 @@ const useFetch = (
     };
   }, [url, options, method]);
 
-  return { data, isPending, error, postData, deleteData };
+  return { data, isPending, error, postData, updateData, deleteData };
 };
 
 export default useFetch;

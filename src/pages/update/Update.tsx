@@ -1,9 +1,9 @@
 import { FC, FormEvent, MouseEvent, useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useFetch, useTheme } from 'hooks';
-import './Create.css';
+import './Update.css';
 
-const Create: FC = () => {
+const Update: FC = () => {
   const [title, setTitle] = useState<string>('');
   const [method, setMethod] = useState<string>('');
   const [cookingTime, setCookingTime] = useState<string>('');
@@ -11,12 +11,16 @@ const Create: FC = () => {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const ingredientInput = useRef<HTMLInputElement | null>(null);
   const navigate = useNavigate();
-  const { data, postData } = useFetch('/recipes', 'POST');
+  const { id } = useParams();
+  const { data, updateData } = useFetch(`/recipes/${id}`);
   const { mode } = useTheme();
 
   useEffect(() => {
     if (data) {
-      navigate('/');
+      setTitle(data.title);
+      setMethod(data.method);
+      setCookingTime(data.cookingTime.replace('minutes', '').trim());
+      setIngredients(data.ingredients);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -25,12 +29,14 @@ const Create: FC = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    postData({
+    updateData({
       title,
       method,
       cookingTime: `${cookingTime} minutes`,
       ingredients,
     });
+
+    setTimeout(() => navigate(`/recipes/${id}`), 1000);
   };
 
   const handleAdd = (e: MouseEvent) => {
@@ -47,8 +53,8 @@ const Create: FC = () => {
   };
 
   return (
-    <div className={`create ${mode}`}>
-      <h2 className="page-title">Add a New Recipe</h2>
+    <div className={`update ${mode}`}>
+      <h2 className="page-title">Update the Recipe</h2>
       <form onSubmit={handleSubmit}>
         <label>
           <span>Recipe title:</span>
@@ -104,4 +110,4 @@ const Create: FC = () => {
   );
 };
 
-export default Create;
+export default Update;

@@ -1,16 +1,11 @@
 {
   "recipes": [
     {
-      "id": "1",
       "title": "Veggie Stew",
-      "ingredients": [
-        "1 Carrot",
-        "1 Leek",
-        "200g Tofu",
-        "300ml Veg stock"
-      ],
       "method": "1. Pre-heat the oven to 200C/3C/gas 5. Place the carrot, leek and tofu in a large bowl. Add the stock and mix well. 2. Add the rest of the ingredients and mix well. 3. Place the mixture in a large bowl and cover with a lid. 4. Place the lid on the oven and cook for 40 minutes. 5. Serve with a slaw of your choice",
-      "cookingTime": "45 minutes"
+      "cookingTime": "40 minutes",
+      "ingredients": ["1 Carrot", "1 Leek", "200g Tofu", "300ml Veg stock"],
+      "id": "1"
     },
     {
       "id": "2",
@@ -41,13 +36,21 @@
       "title": "Veg Pie",
       "method": "Some methods",
       "cookingTime": "45 minutes",
-      "ingredients": [
-        "mushrooms",
-        "leeks",
-        "Tofu",
-        "carrots"
-      ],
+      "ingredients": ["mushrooms", "leeks", "Tofu", "carrots"],
       "id": "otqfGjx"
+    },
+    {
+      "title": "Miso Soup",
+      "method": "Dashi is a basic stock used in Japanese cooking which is made by boiling dried kelp (seaweed) and dried bonito (fish). Instant dashi granules are sold in conveniently-sized jars or packets and vary in strength. Add more dashi to your soup if you want a stronger stock. You can use yellow, white or red miso paste for this soup. Yellow miso is sweet and creamy, red miso is stronger and saltier.",
+      "cookingTime": "20 minutes",
+      "ingredients": [
+        "2 teaspoons dashi granules",
+        "4 cups water",
+        "3 tablespoons miso paste",
+        "1 (8 ounce) package silken tofu, diced",
+        "2 green onions, sliced diagonally into 1/2 inch pieces"
+      ],
+      "id": "skmEVqV"
     }
   ]
 }

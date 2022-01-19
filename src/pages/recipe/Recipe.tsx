@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useFetch, useTheme } from 'hooks';
 import './Recipe.css';
-import deleteIcon from 'assets/delete-icon.svg';
 
 const Recipe: FC = () => {
   const navigate = useNavigate();
@@ -43,9 +42,18 @@ const Recipe: FC = () => {
             ))}
           </ul>
           <p className="method">{recipe.method}</p>
-          <button type="button" className="btn" onClick={handleDelete}>
-            <img src={deleteIcon} alt="Delete Recipe" />
-          </button>
+          <div className="btn-container">
+            <button
+              type="button"
+              className="btn"
+              onClick={() => navigate(`/update/${id}`)}
+            >
+              Update
+            </button>
+            <button type="button" className="btn" onClick={handleDelete}>
+              Delete
+            </button>
+          </div>
         </>
       )}
     </div>
